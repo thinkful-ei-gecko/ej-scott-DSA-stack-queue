@@ -1,5 +1,6 @@
-const QueueNode = require('./QueueNode');
+const QueueNode = require('./DoublyNode');
 const queueHelpers = require('./queueHelpers')
+const queBuiler = require('./queBuilder')
 
 
 class Queue {
@@ -15,9 +16,11 @@ class Queue {
     }
     if (this.last) {
       this.last.next = node;
+      node.prev = this.last.data;
     }
+
     this.last = node;
-    console.log(JSON.stringify(node) + ' added')
+    
   }
   dequeue() {
     if (this.first === null) {
@@ -28,7 +31,7 @@ class Queue {
     if (node === this.last) {
       this.last = null;
     }
-    return node.data;
+    return node.value;
   }
 }
 
@@ -40,15 +43,13 @@ function main(){
   starTrekQ.enqueue('Sulu')
   starTrekQ.enqueue('Checkov')
 
-  // console.log(queueHelpers.peek(starTrekQ))
+  console.log(queueHelpers.peek(starTrekQ))
   // console.log(queueHelpers.isEmpty(starTrekQ))
   // console.log(queueHelpers.display(starTrekQ))
-  starTrekQ.dequeue()
-  starTrekQ.dequeue()
+//   starTrekQ.dequeue()
+//   starTrekQ.dequeue()
   queueHelpers.display(starTrekQ)
 
 }
 
-// main();
-
-module.exports = Queue
+main();

@@ -12,8 +12,8 @@ const stackHelpers = {
     let currNode = stack.top;
     let currPos = 1;
     while (currNode) {
-      console.log('current position: ' + currPos);
-      console.log('data: ' + currNode.data);
+      console.log('STACK HELPER: current position: ' + currPos);
+      console.log('STACK HELPER: data: ' + currNode.data);
       currPos += 1;
       currNode = currNode.next;
     }
